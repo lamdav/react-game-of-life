@@ -1,0 +1,25 @@
+{
+  "name": "react-game-of-life",
+  "version": "1.0.0",
+  "description": "React game of life component.",
+  "main": "./src/components/LifeManager.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamdaV/react-game-of-life.git"
+  },
+  "keywords": [
+    "react",
+    "game",
+    "of",
+    "life"
+  ],
+  "author": "David Lam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lamdaV/react-game-of-life/issues"
+  },
+  "homepage": "https://github.com/lamdaV/react-game-of-life#readme"
+}
