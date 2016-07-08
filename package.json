@@ -2,7 +2,7 @@
   "name": "react-game-of-life",
   "version": "1.0.0",
   "description": "React game of life component.",
-  "main": "index.js",
+  "main": "./src/lib/LifeManager.js",
   "scripts": {
     "build": "npm run clean && npm run build:lib",
     "build:lib": "mkdirp lib/src && babel src/components -d lib/src",
@@ -15,9 +15,8 @@
   },
   "keywords": [
     "react",
-    "game",
-    "of",
-    "life"
+    "game-of-life",
+    "react-component"
   ],
   "author": "David Lam",
   "license": "MIT",
@@ -30,6 +29,7 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.3"
   }
 }
