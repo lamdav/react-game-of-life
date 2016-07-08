@@ -2,7 +2,7 @@ var React = require("react");
 var Cell = require("./Cell.jsx");
 
 var LENGTH = 20;
-var DELAY = 1000 / 120;
+var DELAY = 1000 / 60;
 
 /* global requestAnimationFrame cancelAnimationFrame */
 var LifeManager = React.createClass({
@@ -12,6 +12,13 @@ var LifeManager = React.createClass({
   propTypes: {
     width: React.PropTypes.number,
     height: React.PropTypes.number
+  },
+
+  /*
+    Define default prop types.
+  */
+  getDefaultProps: function() {
+    return ({width: 20, height: 20});
   },
 
   /*
