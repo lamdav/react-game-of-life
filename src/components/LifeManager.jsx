@@ -1,8 +1,8 @@
 var React = require("react");
-var Cell = require("./Cell.jsx");
+var Cell = require("./Cell");
 
 var LENGTH = 20;
-var DELAY = 1000 / 60;
+var DELAY = 1000 / 120;
 
 /* global requestAnimationFrame cancelAnimationFrame */
 var LifeManager = React.createClass({
