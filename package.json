@@ -5,10 +5,9 @@
   "main": "./src/lib/LifeManager.js",
   "scripts": {
     "build": "npm run clean && npm run build:lib",
-    "build:lib": "mkdirp src/lib && babel src/components -d src/lib",
+    "build:lib": "mkdirp src/lib && babel src/components/ -d src/lib/",
     "clean": "rimraf src/lib",
-    "prepublish": "npm run build",
-    "preinstall": "npm run prepublish"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -29,7 +28,10 @@
     "react": "^15.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.3"
   }
