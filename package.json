@@ -5,7 +5,7 @@
   "main": "./src/lib/LifeManager.js",
   "scripts": {
     "build": "npm run clean && npm run build:lib",
-    "build:lib": "mkdirp lib/src && babel src/components -d lib/src",
+    "build:lib": "mkdirp src/lib && babel src/components -d src/lib",
     "clean": "rimraf src/lib",
     "prepublish": "npm run build"
   },
