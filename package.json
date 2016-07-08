@@ -7,7 +7,8 @@
     "build": "npm run clean && npm run build:lib",
     "build:lib": "mkdirp src/lib && babel src/components -d src/lib",
     "clean": "rimraf src/lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "preinstall": "npm run prepublish"
   },
   "repository": {
     "type": "git",
