@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "browserify": {
+    "transform": ["reactify"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lamdaV/react-game-of-life.git"
