@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/lamdaV/react-game-of-life/issues"
   },
-  "homepage": "https://github.com/lamdaV/react-game-of-life#readme"
+  "homepage": "https://github.com/lamdaV/react-game-of-life#readme",
+  "dependencies": {
+    "react": "^15.2.0"
+  }
 }
