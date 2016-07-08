@@ -1,6 +1,6 @@
 {
   "name": "react-game-of-life",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React game of life component.",
   "main": "./src/lib/LifeManager.js",
   "scripts": {
