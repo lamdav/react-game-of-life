@@ -12,9 +12,9 @@ var LifeManager = React.createClass({
     width: React.PropTypes.number,
     height: React.PropTypes.number,
     fps: React.PropTypes.number,
-    lineColor: React.PropTypes.object,
-    cellActiveColor: React.PropTypes.object,
-    cellInActiveColor: React.PropTypes.object
+    lineColor: React.PropTypes.string,
+    cellActiveColor: React.PropTypes.string,
+    cellInActiveColor: React.PropTypes.string
   },
 
   /*
