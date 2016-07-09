@@ -19,10 +19,7 @@ var Cell = React.createClass({
     Render the component.
   */
   render: function() {
-    var fillColor = this.props.cellInActiveColor;
-    if (this.props.status) {
-      fillColor = this.props.cellActiveColor;
-    }
+    var fillColor = this.props.status ? this.props.cellActiveColor : this.props.cellInActiveColor;
 
     return (
       <rect width = {LENGTH} height = {LENGTH} x = {LENGTH * this.props.row} y = {LENGTH * this.props.col} fill = {fillColor} stroke = {this.props.lineColor} strokeWidth = "1"></rect>
