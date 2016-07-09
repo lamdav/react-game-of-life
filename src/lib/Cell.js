@@ -14,9 +14,9 @@ var Cell = React.createClass({
     status: React.PropTypes.bool.isRequired,
     row: React.PropTypes.number.isRequired,
     col: React.PropTypes.number.isRequired,
-    lineColor: React.PropTypes.object.isRequired,
-    cellActiveColor: React.PropTypes.object.isRequired,
-    cellInActiveColor: React.PropTypes.object.isRequired
+    lineColor: React.PropTypes.string.isRequired,
+    cellActiveColor: React.PropTypes.string.isRequired,
+    cellInActiveColor: React.PropTypes.string.isRequired
   },
 
   /*
