@@ -1,8 +1,12 @@
+"use strict";
+
 var React = require("react");
 
 var LENGTH = 20;
 
 var Cell = React.createClass({
+  displayName: "Cell",
+
   /*
     Define prop types.
   */
@@ -18,15 +22,13 @@ var Cell = React.createClass({
   /*
     Render the component.
   */
-  render: function() {
+  render: function render() {
     var fillColor = this.props.cellInActiveColor;
     if (this.props.status) {
       fillColor = this.props.cellActiveColor;
     }
 
-    return (
-      <rect width = {LENGTH} height = {LENGTH} x = {LENGTH * this.props.row} y = {LENGTH * this.props.col} fill = {fillColor} stroke = {this.props.lineColor} strokeWidth = "1"></rect>
-    );
+    return React.createElement("rect", { width: LENGTH, height: LENGTH, x: LENGTH * this.props.row, y: LENGTH * this.props.col, fill: fillColor, stroke: this.props.lineColor, strokeWidth: "1" });
   }
 });
 

@@ -1,3 +1,5 @@
+"use strict";
+
 var React = require("react");
 var Cell = require("./Cell");
 
@@ -5,6 +7,8 @@ var LENGTH = 20;
 
 /* global requestAnimationFrame cancelAnimationFrame */
 var LifeManager = React.createClass({
+  displayName: "LifeManager",
+
   /*
     Define prop types.
   */
@@ -20,14 +24,14 @@ var LifeManager = React.createClass({
   /*
     Define default prop types.
   */
-  getDefaultProps: function() {
-    return ({width: 20, height: 20, fps: 60, lineColor: "cyan", cellActiveColor: "black", cellInActiveColor: "gray"});
+  getDefaultProps: function getDefaultProps() {
+    return { width: 20, height: 20, fps: 60, lineColor: "cyan", cellActiveColor: "black", cellInActiveColor: "gray" };
   },
 
   /*
     Initialize default state.
   */
-  getInitialState: function() {
+  getInitialState: function getInitialState() {
     var board = {
       delay: 1000 / this.props.fps
     };
@@ -49,20 +53,20 @@ var LifeManager = React.createClass({
       }
     }
 
-    return (board);
+    return board;
   },
 
   /*
     Perform floor mod.
   */
-  mod: function(n, m) {
-    return ((n % m) + m) % m;
+  mod: function mod(n, m) {
+    return (n % m + m) % m;
   },
 
   /*
     Count the neighbors of a given cell.
   */
-  countNeighbors: function(row, col) {
+  countNeighbors: function countNeighbors(row, col) {
     var neighbors = 0;
     // right
     if (this.state[[this.mod(row + 1, this.props.width), col]]) {
@@ -102,7 +106,7 @@ var LifeManager = React.createClass({
   /*
     Setup the next generation.
   */
-  nextGeneration: function() {
+  nextGeneration: function nextGeneration() {
     var nextState = {};
     var then = new Date().getTime();
     var now;
@@ -115,9 +119,11 @@ var LifeManager = React.createClass({
 
         // default: lives on.
         nextState[[row, col]] = this.state[[row, col]];
-        if (neighbors < 2 || neighbors > 3) { // death
+        if (neighbors < 2 || neighbors > 3) {
+          // death
           nextState[[row, col]] = false;
-        } else if (neighbors === 3 && !this.state[[row, col]].status) { // birth
+        } else if (neighbors === 3 && !this.state[[row, col]].status) {
+          // birth
           nextState[[row, col]] = true;
         }
       }
@@ -139,32 +145,32 @@ var LifeManager = React.createClass({
   /*
     Start the process when mounted.
   */
-  componentDidMount: function() {
+  componentDidMount: function componentDidMount() {
     this.nextGeneration();
   },
 
   /*
     Cancel animation when unmounted.
   */
-  componentWillUnmount: function() {
+  componentWillUnmount: function componentWillUnmount() {
     cancelAnimationFrame(this.requestID);
   },
 
   /*
     Render the component.
   */
-  render: function() {
+  render: function render() {
     var cells = [];
     for (var row = 0; row < this.props.width; row++) {
       for (var col = 0; col < this.props.height; col++) {
-        cells.push(<Cell status = {this.state[[row, col]]} row = {row} col = {col} key = {row + "cell" + col} cellActiveColor = {this.props.cellActiveColor} cellInActiveColor = {this.props.cellInActiveColor} lineColor = {this.props.lineColor} />);
+        cells.push(React.createElement(Cell, { status: this.state[[row, col]], row: row, col: col, key: row + "cell" + col, cellActiveColor: this.props.cellActiveColor, cellInActiveColor: this.props.cellInActiveColor, lineColor: this.props.lineColor }));
       }
     }
 
-    return (
-      <svg style = {this.svgStyle}>
-        {cells}
-      </svg>
+    return React.createElement(
+      "svg",
+      { style: this.svgStyle },
+      cells
     );
   }
 });
