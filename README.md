@@ -2,6 +2,9 @@
 A React Component depicting the Conway's Game of Life.  
 [Demo](https://lamdav.github.io/react-game-of-life/)
 
+# Install:
+`npm install react-game-of-life`
+
 # How to use:
 ```
 var React = require("react");
@@ -10,7 +13,7 @@ var LifeManager = require("react-game-of-life);
 var Game = React.createClass({
   render: function() {
     return (
-      <LifeManager width = {20} height = {20} />
+      <LifeManager />
     );
   }
 });
