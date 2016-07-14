@@ -6,9 +6,9 @@ A React Component depicting the Conway's Game of Life.
 `npm install react-game-of-life`
 
 # How to use:
-```
+```javascript
 var React = require("react");
-var LifeManager = require("react-game-of-life);
+var LifeManager = require("react-game-of-life");
 
 var Game = React.createClass({
   render: function() {
