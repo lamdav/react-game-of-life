@@ -1,36 +1,20 @@
-var React = require("react");
-var Cell = require("./Cell");
+import React, {Component} from "react";
+import Cell from "./Cell.jsx";
 
-var LENGTH = 20;
+const LENGTH = 20;
 
 /* global requestAnimationFrame cancelAnimationFrame */
-var LifeManager = React.createClass({
-  /*
-    Define prop types.
-  */
-  propTypes: {
-    width: React.PropTypes.number,
-    height: React.PropTypes.number,
-    fps: React.PropTypes.number,
-    lineColor: React.PropTypes.string,
-    cellActiveColor: React.PropTypes.string,
-    cellInActiveColor: React.PropTypes.string
-  },
-
-  /*
-    Define default prop types.
-  */
-  getDefaultProps: function() {
-    return ({width: 20, height: 20, fps: 60, lineColor: "cyan", cellActiveColor: "black", cellInActiveColor: "gray"});
-  },
-
+class LifeManager extends Component {
   /*
     Initialize default state.
   */
-  getInitialState: function() {
-    var board = {
+  constructor(props) {
+    super(props);
+
+    let board = {
       delay: 1000 / this.props.fps
     };
+
     this.svgStyle = {
       width: this.props.width * LENGTH,
       height: this.props.height * LENGTH,
@@ -39,86 +23,145 @@ var LifeManager = React.createClass({
     };
 
     // Avoid 2d array and use an object instead.
-    for (var row = 0; row < this.props.width; row++) {
-      for (var col = 0; col < this.props.height; col++) {
+    for (let row = 0; row < this.props.width; row++) {
+      for (let col = 0; col < this.props.height; col++) {
         if (Math.random() > 0.5) {
-          board[[row, col]] = true;
+          board[
+            [row, col]
+          ] = true;
         } else {
-          board[[row, col]] = false;
+          board[
+            [row, col]
+          ] = false;
         }
       }
     }
 
-    return (board);
-  },
+    // Bind functions.
+    this.mod = this.mod.bind(this);
+    this.countNeighbors = this.countNeighbors.bind(this);
+    this.nextGeneration = this.nextGeneration.bind(this);
+
+    this.state = board;
+  }
 
   /*
     Perform floor mod.
   */
-  mod: function(n, m) {
+  mod(n, m) {
     return ((n % m) + m) % m;
-  },
+  }
 
   /*
     Count the neighbors of a given cell.
   */
-  countNeighbors: function(row, col) {
-    var neighbors = 0;
+  countNeighbors(row, col) {
+    let neighbors = 0;
     // right
-    if (this.state[[this.mod(row + 1, this.props.width), col]]) {
+    if (this.state[
+      [
+        this.mod(row + 1, this.props.width),
+        col
+      ]
+    ]) {
       neighbors++;
     }
     // left
-    if (this.state[[this.mod(row - 1, this.props.width), col]]) {
+    if (this.state[
+      [
+        this.mod(row - 1, this.props.width),
+        col
+      ]
+    ]) {
       neighbors++;
     }
     // down
-    if (this.state[[row, this.mod(col + 1, this.props.height)]]) {
+    if (this.state[
+      [
+        row,
+        this.mod(col + 1, this.props.height)
+      ]
+    ]) {
       neighbors++;
     }
     // up
-    if (this.state[[row, this.mod(col - 1, this.props.height)]]) {
+    if (this.state[
+      [
+        row,
+        this.mod(col - 1, this.props.height)
+      ]
+    ]) {
       neighbors++;
     }
     // up-left
-    if (this.state[[this.mod(row - 1, this.props.width), this.mod(col - 1, this.props.height)]]) {
+    if (this.state[
+      [
+        this.mod(row - 1, this.props.width),
+        this.mod(col - 1, this.props.height)
+      ]
+    ]) {
       neighbors++;
     }
     // up-right
-    if (this.state[[this.mod(row - 1, this.props.width), this.mod(col + 1, this.props.height)]]) {
+    if (this.state[
+      [
+        this.mod(row - 1, this.props.width),
+        this.mod(col + 1, this.props.height)
+      ]
+    ]) {
       neighbors++;
     }
     // down-left
-    if (this.state[[this.mod(row + 1, this.props.width), this.mod(col - 1, this.props.height)]]) {
+    if (this.state[
+      [
+        this.mod(row + 1, this.props.width),
+        this.mod(col - 1, this.props.height)
+      ]
+    ]) {
       neighbors++;
     }
     // down-right
-    if (this.state[[this.mod(row + 1, this.props.width), this.mod(col + 1, this.props.height)]]) {
+    if (this.state[
+      [
+        this.mod(row + 1, this.props.width),
+        this.mod(col + 1, this.props.height)
+      ]
+    ]) {
       neighbors++;
     }
     return neighbors;
-  },
+  }
 
   /*
     Setup the next generation.
   */
-  nextGeneration: function() {
-    var nextState = {};
-    var then = new Date().getTime();
-    var now;
-    var neighbors;
-    var delta;
+  nextGeneration() {
+    let nextState = {};
+    let then = new Date().getTime();
+    let now;
+    let neighbors;
+    let delta;
 
-    for (var row = 0; row < this.props.width; row++) {
-      for (var col = 0; col < this.props.height; col++) {
+    for (let row = 0; row < this.props.width; row++) {
+      for (let col = 0; col < this.props.height; col++) {
         neighbors = this.countNeighbors(row, col);
 
         // default: lives on.
-        nextState[[row, col]] = this.state[[row, col]];
+        nextState[
+          [row, col]
+        ] = this.state[
+          [row, col]
+        ];
         if (neighbors < 2 || neighbors > 3) { // death
-          nextState[[row, col]] = false;
-        } else if (neighbors === 3 && !this.state[[row, col]].status) { // birth
-          nextState[[row, col]] = true;
+          nextState[
+            [row, col]
+          ] = false;
+        } else if (neighbors === 3 && !this.state[
+          [row, col]
+        ].status) { // birth
+          nextState[
+            [row, col]
+          ] = true;
         }
       }
     }
@@ -134,39 +177,65 @@ var LifeManager = React.createClass({
     }
 
     this.requestID = requestAnimationFrame(this.nextGeneration);
-  },
+  }
 
   /*
     Start the process when mounted.
   */
-  componentDidMount: function() {
+  componentDidMount() {
     this.nextGeneration();
-  },
+  }
 
   /*
     Cancel animation when unmounted.
   */
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     cancelAnimationFrame(this.requestID);
-  },
+  }
 
   /*
     Render the component.
   */
-  render: function() {
-    var cells = [];
-    for (var row = 0; row < this.props.width; row++) {
-      for (var col = 0; col < this.props.height; col++) {
-        cells.push(<Cell status = {this.state[[row, col]]} row = {row} col = {col} key = {row + "cell" + col} cellActiveColor = {this.props.cellActiveColor} cellInActiveColor = {this.props.cellInActiveColor} lineColor = {this.props.lineColor} />);
+  render() {
+    let cells = [];
+    for (let row = 0; row < this.props.width; row++) {
+      for (let col = 0; col < this.props.height; col++) {
+        cells.push(<Cell status={this.state[
+          [row, col]
+        ]} row={row} col={col} key={row + "cell" + col} cellActiveColor={this.props.cellActiveColor} cellInActiveColor={this.props.cellInActiveColor} lineColor={this.props.lineColor}/>);
       }
     }
 
     return (
-      <svg style = {this.svgStyle}>
+      <svg style={this.svgStyle}>
         {cells}
       </svg>
     );
   }
-});
+};
 
-module.exports = LifeManager;
+/*
+  Define prop types.
+*/
+LifeManager.propTypes = {
+  width: React.PropTypes.number,
+  height: React.PropTypes.number,
+  fps: React.PropTypes.number,
+  lineColor: React.PropTypes.string,
+  cellActiveColor: React.PropTypes.string,
+  cellInActiveColor: React.PropTypes.string
+};
+
+/*
+  Define default prop types.
+*/
+LifeManager.defaultProps = {
+  width: 20,
+  height: 20,
+  fps: 60,
+  lineColor: "cyan",
+  cellActiveColor: "black",
+  cellInActiveColor: "gray"
+};
+
+export default LifeManager;

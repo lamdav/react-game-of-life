@@ -1,5 +1,9 @@
+
 # react-game-of-life
-A React Component depicting the Conway's Game of Life.  
+A React Component depicting the Conway's Game of Life.
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
 [Demo](https://lamdav.github.io/react-game-of-life/)
 
 # Install:
@@ -7,16 +11,11 @@ A React Component depicting the Conway's Game of Life.
 
 # How to use:
 ```javascript
-var React = require("react");
-var LifeManager = require("react-game-of-life");
+import React, {Component} from "react";
+import ReactDOM from "react-dom";
+import LifeManager from "react-game-of-life";
 
-var Game = React.createClass({
-  render: function() {
-    return (
-      <LifeManager />
-    );
-  }
-});
+ReactDOM.render(<LifeManager />, document.findElementById("game"));
 ```
 
 # Props:
