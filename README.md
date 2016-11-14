@@ -6,8 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Demo](https://lamdav.github.io/react-game-of-life/)
 
+# Note:
+This update has removed all `requirejs` in favor of es6 styled imports. If `requirejs` is required for your project, install 1.1.3.
+
 # Install:
 `npm install react-game-of-life`
+
+# Test:
+Clone the repo and run the command `npm start`.
+This will run the dev-server and showcase a small component of the LifeManager.
 
 # How to use:
 ```javascript
