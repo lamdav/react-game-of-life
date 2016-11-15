@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LifeManager from './components/LifeManager.jsx';
+import LifeManager from './lib/LifeManager.js';
 
 ReactDOM.render(
-  <LifeManager />,
+  <LifeManager width={40} lineColor={"green"} cellActiveColor={"pink"}/>,
   document.getElementById('root')
 );
