@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 const LENGTH = 20;
 
@@ -21,12 +22,12 @@ class Cell extends Component {
   Define prop types.
 */
 Cell.propTypes = {
-  status: React.PropTypes.bool.isRequired,
-  row: React.PropTypes.number.isRequired,
-  col: React.PropTypes.number.isRequired,
-  lineColor: React.PropTypes.string.isRequired,
-  cellActiveColor: React.PropTypes.string.isRequired,
-  cellInActiveColor: React.PropTypes.string.isRequired
+  status: PropTypes.bool.isRequired,
+  row: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired,
+  lineColor: PropTypes.string.isRequired,
+  cellActiveColor: PropTypes.string.isRequired,
+  cellInActiveColor: PropTypes.string.isRequired
 };
 
 export default Cell;

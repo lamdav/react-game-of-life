@@ -10,6 +10,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Cell = require("./Cell.js");
 
 var _Cell2 = _interopRequireDefault(_Cell);
@@ -215,12 +219,12 @@ var LifeManager = function (_Component) {
   Define prop types.
 */
 LifeManager.propTypes = {
-  width: _react2.default.PropTypes.number,
-  height: _react2.default.PropTypes.number,
-  fps: _react2.default.PropTypes.number,
-  lineColor: _react2.default.PropTypes.string,
-  cellActiveColor: _react2.default.PropTypes.string,
-  cellInActiveColor: _react2.default.PropTypes.string
+  width: _propTypes2.default.number,
+  height: _propTypes2.default.number,
+  fps: _propTypes2.default.number,
+  lineColor: _propTypes2.default.string,
+  cellActiveColor: _propTypes2.default.string,
+  cellInActiveColor: _propTypes2.default.string
 };
 
 /*

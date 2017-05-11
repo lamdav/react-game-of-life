@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import Cell from "./Cell.jsx";
 
 const LENGTH = 20;
@@ -218,12 +219,12 @@ class LifeManager extends Component {
   Define prop types.
 */
 LifeManager.propTypes = {
-  width: React.PropTypes.number,
-  height: React.PropTypes.number,
-  fps: React.PropTypes.number,
-  lineColor: React.PropTypes.string,
-  cellActiveColor: React.PropTypes.string,
-  cellInActiveColor: React.PropTypes.string
+  width: PropTypes.number,
+  height: PropTypes.number,
+  fps: PropTypes.number,
+  lineColor: PropTypes.string,
+  cellActiveColor: PropTypes.string,
+  cellInActiveColor: PropTypes.string
 };
 
 /*
