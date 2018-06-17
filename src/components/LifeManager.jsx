@@ -27,13 +27,9 @@ class LifeManager extends Component {
     for (let row = 0; row < this.props.width; row++) {
       for (let col = 0; col < this.props.height; col++) {
         if (Math.random() > 0.5) {
-          board[
-            [row, col]
-          ] = true;
+          board[[row, col]] = true;
         } else {
-          board[
-            [row, col]
-          ] = false;
+          board[[row, col]] = false;
         }
       }
     }
@@ -155,7 +151,8 @@ class LifeManager extends Component {
                          row={row}
                          col={col}
                          key={row + "cell" + col}
-                         cellActiveColor={this.props.cellActiveColor} cellInActiveColor={this.props.cellInActiveColor}
+                         cellActiveColor={this.props.cellActiveColor}
+                         cellInActiveColor={this.props.cellInActiveColor}
                          lineColor={this.props.lineColor}/>);
       }
     }

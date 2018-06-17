@@ -202,7 +202,8 @@ var LifeManager = function (_Component) {
             row: row,
             col: col,
             key: row + "cell" + col,
-            cellActiveColor: this.props.cellActiveColor, cellInActiveColor: this.props.cellInActiveColor,
+            cellActiveColor: this.props.cellActiveColor,
+            cellInActiveColor: this.props.cellInActiveColor,
             lineColor: this.props.lineColor }));
         }
       }
