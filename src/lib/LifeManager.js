@@ -14,7 +14,7 @@ var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Cell = require("./Cell.js");
+var _Cell = require("./Cell.jsx");
 
 var _Cell2 = _interopRequireDefault(_Cell);
 
@@ -198,7 +198,12 @@ var LifeManager = function (_Component) {
       var cells = [];
       for (var row = 0; row < this.props.width; row++) {
         for (var col = 0; col < this.props.height; col++) {
-          cells.push(_react2.default.createElement(_Cell2.default, { status: this.state[[row, col]], row: row, col: col, key: row + "cell" + col, cellActiveColor: this.props.cellActiveColor, cellInActiveColor: this.props.cellInActiveColor, lineColor: this.props.lineColor }));
+          cells.push(_react2.default.createElement(_Cell2.default, { status: this.state[[row, col]],
+            row: row,
+            col: col,
+            key: row + "cell" + col,
+            cellActiveColor: this.props.cellActiveColor, cellInActiveColor: this.props.cellInActiveColor,
+            lineColor: this.props.lineColor }));
         }
       }
 

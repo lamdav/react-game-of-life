@@ -59,75 +59,35 @@ class LifeManager extends Component {
   countNeighbors(row, col) {
     let neighbors = 0;
     // right
-    if (this.state[
-      [
-        this.mod(row + 1, this.props.width),
-        col
-      ]
-    ]) {
+    if (this.state[[this.mod(row + 1, this.props.width), col]]) {
       neighbors++;
     }
     // left
-    if (this.state[
-      [
-        this.mod(row - 1, this.props.width),
-        col
-      ]
-    ]) {
+    if (this.state[[this.mod(row - 1, this.props.width), col]]) {
       neighbors++;
     }
     // down
-    if (this.state[
-      [
-        row,
-        this.mod(col + 1, this.props.height)
-      ]
-    ]) {
+    if (this.state[[row, this.mod(col + 1, this.props.height)]]) {
       neighbors++;
     }
     // up
-    if (this.state[
-      [
-        row,
-        this.mod(col - 1, this.props.height)
-      ]
-    ]) {
+    if (this.state[[row, this.mod(col - 1, this.props.height)]]) {
       neighbors++;
     }
     // up-left
-    if (this.state[
-      [
-        this.mod(row - 1, this.props.width),
-        this.mod(col - 1, this.props.height)
-      ]
-    ]) {
+    if (this.state[[this.mod(row - 1, this.props.width), this.mod(col - 1, this.props.height)]]) {
       neighbors++;
     }
     // up-right
-    if (this.state[
-      [
-        this.mod(row - 1, this.props.width),
-        this.mod(col + 1, this.props.height)
-      ]
-    ]) {
+    if (this.state[[this.mod(row - 1, this.props.width), this.mod(col + 1, this.props.height)]]) {
       neighbors++;
     }
     // down-left
-    if (this.state[
-      [
-        this.mod(row + 1, this.props.width),
-        this.mod(col - 1, this.props.height)
-      ]
-    ]) {
+    if (this.state[[this.mod(row + 1, this.props.width), this.mod(col - 1, this.props.height)]]) {
       neighbors++;
     }
     // down-right
-    if (this.state[
-      [
-        this.mod(row + 1, this.props.width),
-        this.mod(col + 1, this.props.height)
-      ]
-    ]) {
+    if (this.state[[this.mod(row + 1, this.props.width), this.mod(col + 1, this.props.height)]]) {
       neighbors++;
     }
     return neighbors;
@@ -148,21 +108,11 @@ class LifeManager extends Component {
         neighbors = this.countNeighbors(row, col);
 
         // default: lives on.
-        nextState[
-          [row, col]
-        ] = this.state[
-          [row, col]
-        ];
+        nextState[[row, col]] = this.state[[row, col]];
         if (neighbors < 2 || neighbors > 3) { // death
-          nextState[
-            [row, col]
-          ] = false;
-        } else if (neighbors === 3 && !this.state[
-          [row, col]
-        ].status) { // birth
-          nextState[
-            [row, col]
-          ] = true;
+          nextState[[row, col]] = false;
+        } else if (neighbors === 3 && !this.state[[row, col]].status) { // birth
+          nextState[[row, col]] = true;
         }
       }
     }
@@ -201,9 +151,12 @@ class LifeManager extends Component {
     let cells = [];
     for (let row = 0; row < this.props.width; row++) {
       for (let col = 0; col < this.props.height; col++) {
-        cells.push(<Cell status={this.state[
-          [row, col]
-        ]} row={row} col={col} key={row + "cell" + col} cellActiveColor={this.props.cellActiveColor} cellInActiveColor={this.props.cellInActiveColor} lineColor={this.props.lineColor}/>);
+        cells.push(<Cell status={this.state[[row, col]]}
+                         row={row}
+                         col={col}
+                         key={row + "cell" + col}
+                         cellActiveColor={this.props.cellActiveColor} cellInActiveColor={this.props.cellInActiveColor}
+                         lineColor={this.props.lineColor}/>);
       }
     }
 

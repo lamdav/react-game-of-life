@@ -4,18 +4,18 @@
   "description": "React game of life component.",
   "main": "./src/lib/LifeManager.js",
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "mkdirp": "^0.5.1",
-    "react-scripts": "0.9.5",
-    "rimraf": "^2.5.3"
+    "react-scripts": "1.0.17",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "prop-types": "^15.5.9",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

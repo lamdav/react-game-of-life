@@ -13,7 +13,13 @@ class Cell extends Component {
       : this.props.cellInActiveColor;
 
     return (
-      <rect width={LENGTH} height={LENGTH} x={LENGTH * this.props.row} y={LENGTH * this.props.col} fill={fillColor} stroke={this.props.lineColor} strokeWidth="1"></rect>
+      <rect width={LENGTH}
+            height={LENGTH}
+            x={LENGTH * this.props.row}
+            y={LENGTH * this.props.col}
+            fill={fillColor}
+            stroke={this.props.lineColor}
+            strokeWidth="1"/>
     );
   }
 };
