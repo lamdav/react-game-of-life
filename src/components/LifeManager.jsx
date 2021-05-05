@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import Cell from "./Cell.jsx";
+import Cell from "./Cell";
 
 const LENGTH = 20;
 
